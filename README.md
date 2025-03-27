@@ -99,7 +99,7 @@ This app has been tested on Python 3.10 / 2.6.0  / Cuda 12.4.
 
 ```shell
 # 0 Download the source and create a Python 3.10.9 environment using conda or create a venv using python
-git clone https://github.com/deepbeepmeep/Wan2GP.git
+git clone https://github.com/learnpythonai/Wan2GP.git
 cd Wan2GP
 conda create -n wan2gp python=3.10.9
 conda activate wan2gp
@@ -139,7 +139,7 @@ RTX50XX are only supported by pytorch starting from pytorch 2.7.0 which is still
 It is important to use Python 3.10 otherwise the pip wheels may not be compatible.
 ```
 # 0 Download the source and create a Python 3.10.9 environment using conda or create a venv using python
-git clone https://github.com/deepbeepmeep/Wan2GP.git
+git clone https://github.com/learnpythonai/Wan2GP.git
 cd Wan2GP
 conda create -n wan2gp python=3.10.9
 conda activate wan2gp
