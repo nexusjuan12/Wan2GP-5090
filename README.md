@@ -10,6 +10,7 @@
 
 
 ## 🔥 Latest News!!
+* May 5 2025: 👋 Wan 2.1GP v4.5: FantasySpeaking model, you can animate a talking head using a voice track. This works not only on people but also on objects. Also better seamless transitions between Vace sliding windows for very long videos (see recommended settings). New high quality processing features (mixed 16/32 bits calculation and 32 bitsVAE)
 * April 27 2025: 👋 Wan 2.1GP v4.4: Phantom model support, very good model to transfer people or objects into video, works quite well at 720p and with the number of steps > 30
 * April 25 2025: 👋 Wan 2.1GP v4.3: Added preview mode and support for Sky Reels v2 Diffusion Forcing for high quality "infinite length videos" (see Window Sliding section below).Note that Skyreel uses causal attention that is only supported by Sdpa attention so even if chose an other type of attention, some of the processes will use Sdpa attention. 
 
@@ -232,6 +233,10 @@ If you want to manage in different areas Loras for the 1.3B model and the 14B as
 - loras/1.3B
 - loras/14B
 
+You can also put all the loras in the same place by launching the app with following command line (*path* is a path to shared loras directory):
+```
+python wgp.exe --lora-dir path --lora-dir-i2v path
+```
 
 For each activated Lora, you may specify a *multiplier* that is one float number that corresponds to its weight (default is 1.0) .The multipliers for each Lora should be separated by a space character or a carriage return. For instance:\
 *1.2 0.8* means that the first lora will have a 1.2 multiplier and the second one will have 0.8. 
@@ -303,7 +308,13 @@ Vace provides on its github (https://github.com/ali-vilab/VACE/tree/main/vace/gr
 
 There is also a guide that describes the various combination of hints (https://github.com/ali-vilab/VACE/blob/main/UserGuide.md).Good luck ! 
 
-It seems you will get better results if you turn on "Skip Layer Guidance" with its default configuration
+It seems you will get better results with Vace if you turn on "Skip Layer Guidance" with its default configuration.
+
+Other recommended setttings for Vace:
+- Use a long prompt description especially for the people / objects that are in the background and not in reference images. This will ensure consistency between the windows.
+- Set a medium size overlap window: long enough to give the model a sense of the motion but short enough so any overlapped blurred frames do no turn the rest of the video into a blurred video
+- Truncate at least the last 4 frames of the each generated window as Vace last frames tends to be blurry
+
 
 ### VACE and Sky Reels v2 Diffusion Forcing Slidig Window
 With this mode (that works for the moment only with Vace and Sky Reels v2) you can merge mutiple Videos to form a very long video (up to 1 min). 
